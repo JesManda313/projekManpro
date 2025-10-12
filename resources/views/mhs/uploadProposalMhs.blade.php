@@ -27,11 +27,11 @@
 
                 {{-- Bagian Rincian Proposal --}}
                 <div class="mb-10">
-                    <h3 class="text-xl font-semibold text-gray-800 mb-4 border-b pb-2">Rincian Proposal</h3>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-4 border-b pb-2">Jurusan</h3>
                     <div class="grid grid-cols-1 md:grid-cols-4 gap-4 items-start">
-                        <label class="text-lg font-medium text-gray-700 col-span-1 pt-2">Rincian Proposal</label>
+                        <label class="text-lg font-medium text-gray-700 col-span-1 pt-2">Jurusan</label>
                         <div class="col-span-3">
-                            <textarea class="w-full p-3 bg-gray-100 border border-gray-300 rounded-lg text-gray-800 h-24 resize-none" placeholder="Masukkan rincian proposal Anda di sini..."></textarea>
+                            <textarea class="w-full p-3 bg-gray-100 border border-gray-300 rounded-lg text-gray-800 h-24 resize-none" placeholder="Masukkan Jurusan Anda di sini..."></textarea>
                         </div>
                     </div>
                 </div>

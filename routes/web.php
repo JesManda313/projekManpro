@@ -14,7 +14,7 @@ Route::get('/admin/add-role', function () { return view('superadmin/add-role');}
 // mhs
 Route::get('/mhs/dashboard', function () { return view('mhs/dashboardMhs');});
 Route::get('/mhs/pilihdosbing', function () { return view('mhs/pilihdosbingMhs');});
-Route::get('/mhs/topikdosen', function () { return view('mhs/topikDosen');});
+Route::get('/mhs/up-proposal', function () { return view('mhs/uploadProposalMhs');});
 Route::get('/mhs/sidang-proposal', function () { return view('mhs/sidangProposalMhs');});
 Route::get('/mhs/proposalfinal', function () { return view('mhs/proposalFinalMhs');});
 Route::get('/mhs/sidang-skripsi', function () { return view('mhs/sidangSkripsiMhs');});
