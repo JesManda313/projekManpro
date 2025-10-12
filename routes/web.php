@@ -29,3 +29,15 @@ Route::get('/profile', function () { return view('mhs/profileMhs');});
 // Route::get('/login', function () { return view('mhs/loginMhs');});       
 
 // dosen
+Route::get('/dosen/listMahasiswa', function () {
+    return view('dosen/listMahasiswa');
+});
+Route::get('/dosen/addRole', function () {
+    return view('dosen/addRole');
+});
+Route::get('/dosen/addVenue', function () {
+    return view('dosen/addVenue');
+});
+Route::get('/dosen/pilihDosenPenguji', function () {
+    return view('dosen/pilihDosenPenguji');
+});
