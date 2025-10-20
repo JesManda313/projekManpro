@@ -17,7 +17,6 @@ Route::get('/mhs/pilihdosbing', function () { return view('mhs/pilihdosbingMhs')
 Route::get('/mhs/up-proposal', function () { return view('mhs/uploadProposalMhs');});
 Route::get('/mhs/sidang-proposal', function () { return view('mhs/sidangProposalMhs');});
 Route::get('/mhs/proposalfinal', function () { return view('mhs/proposalFinalMhs');});
-Route::get('/mhs/sidang-skripsi', function () { return view('mhs/sidangSkripsiMhs');});
 Route::get('/mhs/pendaftaran-skripsi', function () { return view('mhs/pendaftaranSkripsiMhs');});
 Route::get('/mhs/jadwal-sidang-skripsi', function () { return view('mhs/jadwalSidangSkripsiMhs');});
 Route::get('/mhs/submit-skripsi-final', function () { return view('mhs/submitSkripsiMhs');});
