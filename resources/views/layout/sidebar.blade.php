@@ -1,8 +1,7 @@
 <div class="flex h-screen">
-    <!-- Sidebar -->
     <aside 
         id="sidebar" 
-        class="fixed inset-y-0 left-0 w-64 bg-gray-800 bg-opacity-80 text-white flex flex-col transform -translate-x-full sm:translate-x-0 transition-transform duration-300 z-50"
+        class="fixed inset-y-0 left-0 w-64 bg-gray-800 bg-opacity-80 text-white flex flex-col transform -translate-x-full lg:translate-x-0 transition-transform duration-300 z-50"
     >
         <div class="p-6 text-2xl font-semibold border-b border-gray-700">PETRA</div>
         <nav class="flex-1 px-4 py-6 space-y-2">
@@ -16,15 +15,12 @@
         </div>
     </aside>
 
-    <!-- Blur overlay untuk mobile -->
-    <div id="blurOverlay" class="fixed inset-0 bg-transparent backdrop-blur-sm hidden z-40 sm:hidden"></div>
+    <div id="blurOverlay" class="fixed inset-0 bg-transparent backdrop-blur-sm hidden z-40 lg:hidden"></div>
 
-    <!-- Main content -->
-    <main id="mainContent" class="flex-1 flex flex-col ml-0 sm:ml-64 transition-all duration-300">
+    <main id="mainContent" class="flex-1 flex flex-col ml-0 lg:ml-64 transition-all duration-300">
         <header class="flex items-center justify-between p-5 bg-white bg-opacity-70 backdrop-blur-sm">
             <div class="flex items-center space-x-4">
-                <!-- Hamburger button untuk mobile -->
-                <button id="hamburger" class="text-gray-600 sm:hidden">
+                <button id="hamburger" class="text-gray-600 lg:hidden">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
                         xmlns="http://www.w3.org/2000/svg">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
