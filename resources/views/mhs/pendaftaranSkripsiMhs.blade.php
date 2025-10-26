@@ -2,13 +2,11 @@
 @extends('layout.sidebar')
 
 @section('content1')
-    <div class="bg-white bg-opacity-70 backdrop-blur-sm p-6 sm:p-8 rounded-xl shadow-lg max-w-5xl mx-auto">
+    <div class="bg-white bg-opacity-90 backdrop-blur-sm p-6 sm:p-8 rounded-xl shadow-lg max-w-7xl mx-auto">
 
-        {{-- Progress Bar (disesuaikan dengan gaya baru, tanpa loop) --}}
         <div class="mb-10 overflow-x-auto">
             <h3 class="font-semibold text-gray-800 mb-4">Your Progress</h3>
             <div class="flex items-center min-w-max">
-                {{-- Step 1-5 (Selesai) --}}
                 <div class="flex flex-col items-center">
                     <div
                         class="w-8 h-8 bg-green-500 border-2 border-green-500 rounded-full flex items-center justify-center z-10">
@@ -60,14 +58,12 @@
                 </div>
                 <div class="flex-auto border-t-2 border-gray-300 mx-2"></div>
 
-                {{-- Step 6 (Aktif) --}}
                 <div class="flex flex-col items-center">
                     <div class="w-8 h-8 bg-black border-2 border-black rounded-full z-10"></div>
                     <p class="mt-2 text-xs sm:text-sm font-semibold text-gray-800">Skripsi</p>
                 </div>
                 <div class="flex-auto border-t-2 border-gray-300 mx-2"></div>
 
-                {{-- Step 7-8 (Belum) --}}
                 <div class="flex flex-col items-center">
                     <div class="w-8 h-8 bg-white border-2 border-gray-300 rounded-full z-10"></div>
                     <p class="mt-2 text-xs sm:text-sm text-gray-500">Sidang Skripsi</p>
@@ -80,7 +76,6 @@
             </div>
         </div>
 
-        {{-- Form Section (disesuaikan dengan gaya baru) --}}
         <div class="space-y-6 max-w-3xl mx-auto pt-8">
             <div class="flex items-start space-x-4">
                 <label for="rincian-proposal" class="w-32 text-sm font-medium text-gray-700 pt-2.5">Rincian Proposal</label>
@@ -100,7 +95,6 @@
             </div>
         </div>
 
-        {{-- History Table Section --}}
         <div class="mt-12">
             <h3 class="text-sm font-medium text-gray-700 mb-2">History Proposal</h3>
             <div class="relative overflow-x-auto border sm:rounded-lg">
@@ -115,41 +109,26 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr class="bg-white border-b">
-                            <td class="px-6 py-4">1 Agustus 2024</td>
-                            <td class="px-6 py-4">1</td>
-                            <td class="px-6 py-4">kurang rinci di bagian latar belakang</td>
-                            <td class="px-6 py-4">1</td>
-                            <td class="px-6 py-4">Dosbing Kabid</td>
-                        </tr>
-                        <tr class="bg-white border-b">
-                            <td class="px-6 py-4">8 Agustus 2024</td>
-                            <td class="px-6 py-4">2</td>
-                            <td class="px-6 py-4">sumber kurang terpercaya</td>
-                            <td class="px-6 py-4">2</td>
-                            <td class="px-6 py-4">Dosbing Kabid</td>
-                        </tr>
-                        <tr class="bg-white border-b">
-                            <td class="px-6 py-4">15 Agustus 2024</td>
-                            <td class="px-6 py-4">3</td>
-                            <td class="px-6 py-4">banyaknya typo</td>
-                            <td class="px-6 py-4">3</td>
-                            <td class="px-6 py-4">Dosbing Kabid</td>
-                        </tr>
-                        <tr class="bg-white border-b">
-                            <td class="px-6 py-4">22 Agustus 2024</td>
-                            <td class="px-6 py-4">4</td>
-                            <td class="px-6 py-4">dalam analisis kurang jelas</td>
-                            <td class="px-6 py-4">4</td>
-                            <td class="px-6 py-4">Dosbing Kabid</td>
-                        </tr>
-                        <tr class="bg-white">
-                            <td class="px-6 py-4">29 Agustus 2024</td>
-                            <td class="px-6 py-4">5</td>
-                            <td class="px-6 py-4">metode yang digunakan kurang efisien</td>
-                            <td class="px-6 py-4">5</td>
-                            <td class="px-6 py-4">Dosbing Kabid</td>
-                        </tr>
+                        @php
+                            $history = [
+                                ['tanggal' => '1 Agustus 2024', 'revisi' => 1, 'penjelasan' => 'kurang rinci di bagian latar belakang', 'dokumen' => 1, 'acc' => 'Dosbing Kabid'],
+                                ['tanggal' => '8 Agustus 2024', 'revisi' => 2, 'penjelasan' => 'sumber kurang terpercaya', 'dokumen' => 2, 'acc' => 'Dosbing Kabid'],
+                                ['tanggal' => '15 Agustus 2024', 'revisi' => 3, 'penjelasan' => 'banyaknya typo', 'dokumen' => 3, 'acc' => 'Dosbing Kabid'],
+                                ['tanggal' => '22 Agustus 2024', 'revisi' => 4, 'penjelasan' => 'dalam analisis kurang jelas', 'dokumen' => 4, 'acc' => 'Dosbing Kabid'],
+                                ['tanggal' => '29 Agustus 2024', 'revisi' => 5, 'penjelasan' => 'metode yang digunakan kurang efisien', 'dokumen' => 5, 'acc' => 'Dosbing Kabid'],
+                            ];
+                        @endphp
+
+                        @foreach ($history as $item)
+                            <tr class="bg-white border-b">
+                                <td class="px-6 py-4 whitespace-nowrap">{{ $item['tanggal'] }}</td>
+                                <td class="px-6 py-4 whitespace-nowrap">{{ $item['revisi'] }}</td>
+                                <td class="px-6 py-4">{{ $item['penjelasan'] }}</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-blue-600 hover:text-blue-800 cursor-pointer">
+                                    {{ $item['dokumen'] }}</td>
+                                <td class="px-6 py-4 whitespace-nowrap font-semibold">{{ $item['acc'] }}</td>
+                            </tr>
+                        @endforeach
                     </tbody>
                 </table>
             </div>
