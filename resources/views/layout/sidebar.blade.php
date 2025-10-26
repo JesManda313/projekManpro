@@ -17,7 +17,7 @@
 
     <div id="blurOverlay" class="fixed inset-0 bg-transparent backdrop-blur-sm hidden z-40 lg:hidden"></div>
 
-    <main id="mainContent" class="flex-1 flex flex-col ml-0 lg:ml-64 transition-all duration-300">
+    <main id="mainContent" class="flex-1 flex flex-col ml-0 lg:ml-64 transition-all duration-300 min-w-0">
         <header class="flex items-center justify-between p-5 bg-white bg-opacity-70 backdrop-blur-sm">
             <div class="flex items-center space-x-4">
                 <button id="hamburger" class="text-gray-600 lg:hidden">
@@ -32,7 +32,7 @@
             <div class="text-md font-medium text-gray-700">Hello, ...</div>
         </header>
 
-        <div class="flex-1 p-8 overflow-y-auto">
+        <div class="flex-1 p-8 overflow-y-auto min-w-0">
             @yield('content1')
         </div>
     </main>
@@ -61,6 +61,5 @@
         }
     });
 
-    // klik di overlay → tutup sidebar
     blurOverlay.addEventListener('click', closeSidebar);
 </script>

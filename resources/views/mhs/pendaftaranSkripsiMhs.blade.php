@@ -5,15 +5,15 @@
     <div class="bg-white bg-opacity-90 backdrop-blur-sm p-6 sm:p-8 rounded-xl shadow-lg max-w-7xl mx-auto">
         <div class="mb-8 sm:mb-10 overflow-x-auto">
             <h3 class="font-medium text-gray-600 mb-4 text-sm sm:text-base">Your Progress</h3>
-            <div class="flex items-center min-w-max">
-                @php
-                    $steps = ['Judul', 'Pilih Dosbing', 'Proposal', 'Sidang', 'Final', 'Skripsi', 'Sidang Skripsi', 'Final Skripsi'];
+            <div class="flex items-start min-w-max">
 
+                @php
+                    $steps = ['Judul', 'Pilih Dosbing', 'Upload Proposal', 'Sidang Proposal', 'Final Proposal', 'Upload Skripsi', 'Sidang Skripsi', 'Final Skripsi'];
                     $currentStepIndex = 5; 
                 @endphp
 
                 @foreach($steps as $index => $step)
-                    <div class="flex flex-col items-center flex-shrink-0">
+                    <div class="flex flex-col items-center w-16 flex-shrink-0">
 
                         @if($index < $currentStepIndex)
                             <div
@@ -22,22 +22,22 @@
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path>
                                 </svg>
                             </div>
-                            <p class="mt-2 text-xs sm:text-sm font-medium text-gray-700">{{ $step }}</p>
+                            <p class="mt-2 text-xs sm:text-sm font-medium text-gray-700 text-center">{{ $step }}</p>
 
                         @elseif($index == $currentStepIndex)
                             <div class="w-7 h-7 bg-black border-2 border-black rounded-full z-10"></div>
-                            <p class="mt-2 text-xs sm:text-sm font-medium text-gray-700">{{ $step }}</p>
+                            <p class="mt-2 text-xs sm:text-sm font-medium text-gray-700 text-center">{{ $step }}</p>
 
                         @else
                             <div class="w-7 h-7 bg-white border-2 border-gray-300 rounded-full z-10"></div>
-                            <p class="mt-2 text-xs sm:text-sm text-gray-500">{{ $step }}</p>
+                            <p class="mt-2 text-xs sm:text-sm text-gray-500 text-center">{{ $step }}</p>
                         @endif
 
                     </div>
 
                     @if(!$loop->last)
                         <div
-                            class="flex-auto border-t-2 {{ $index < $currentStepIndex ? 'border-green-500' : 'border-gray-300' }} mx-2">
+                            class="flex-auto border-t-2 {{ $index < $currentStepIndex ? 'border-green-500' : 'border-gray-300' }} mx-2 mt-3">
                         </div>
                     @endif
                 @endforeach
@@ -46,13 +46,13 @@
 
         <div class="space-y-6 max-w-3xl mx-auto pt-8">
             <div class="flex items-start space-x-4">
-                <label for="rincian-proposal" class="w-32 text-sm font-medium text-gray-700 pt-2.5">Rincian Proposal</label>
+                <label for="rincian-proposal" class="w-32 text-sm font-medium text-gray-700 pt-2.5">Rincian Skripsi</label>
                 <textarea id="rincian-proposal" rows="3"
                     class="flex-grow bg-gray-50 border border-gray-300 text-sm rounded-lg p-2.5"
                     placeholder="latar belakang, perumusan masalah, tujuan, ruang lingkup, teori"></textarea>
             </div>
             <div class="flex items-center space-x-4">
-                <label for="submit-proposal" class="w-32 text-sm font-medium text-gray-700">Submit Proposal</label>
+                <label for="submit-proposal" class="w-32 text-sm font-medium text-gray-700">Submit Skripsi</label>
                 <div class="flex-grow flex items-center space-x-3">
                     <input
                         class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 focus:outline-none file:mr-4 file:py-2 file:px-4 file:rounded-l-lg file:border-0 file:text-sm file:font-semibold file:bg-gray-200 file:text-gray-700 hover:file:bg-gray-300"
