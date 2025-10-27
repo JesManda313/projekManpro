@@ -31,12 +31,6 @@
 
                 <form action="#" method="POST">
                     
-                    {{-- Input Username --}}
-                    <div class="mb-4">
-                        <input type="text" id="student_id" name="student_id" placeholder="Username" 
-                            class="w-full px-4 py-3 bg-gray-100 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-700">
-                    </div>
-                    
                     {{-- Input Email --}}
                     <div class="mb-4">
                         <input type="email" placeholder="user@gmail.com"
