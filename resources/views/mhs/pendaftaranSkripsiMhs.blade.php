@@ -158,10 +158,9 @@
                         <div id="accordion-body-{{ $index }}" class="overflow-hidden transition-all duration-300 **accordion-content**" 
                             style="{{ $index == $currentStepIndex ? 'max-height: 900px; padding: 10px;' : 'max-height: 0; padding: 0 10px;' }}">
                             
-                            <div class="pb-3 pt-1 pl-12 text-gray-600 text-sm">
+                            <div class="pb-3 pt-1 text-gray-600 text-sm">
                                 
                                 @if($index == $currentStepIndex)
-                                    <p class="mt-2 mb-4 text-xs text-gray-500">Silakan isi rincian dan upload file skripsi Anda.</p>
                                     
                                     {{-- FORM SUBMIT & RINCIAN (MOBILE) --}}
                                     <form action="action_url" method="POST" enctype="multipart/form-data" class="mt-4">

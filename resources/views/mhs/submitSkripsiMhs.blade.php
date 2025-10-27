@@ -4,7 +4,7 @@
 @section('content1')
     
     <style>
-        /* HACK: PENGONTROL DISPLAY MURNI CSS (Wajib untuk mengatasi konflik tampilan) */
+        /* HACK: PENGONTROL DISPLAY MURNI CSS (Biarkan tetap ada) */
         @media (max-width: 767px) {
             #desktop-content-container {
                 display: none !important;
@@ -15,6 +15,7 @@
         }
     </style>
 
+    {{-- 1. Wrapper Utama: Style disamakan --}}
     <div class="bg-white bg-opacity-90 backdrop-blur-sm p-4 md:p-8 rounded-xl shadow-lg">
 
         @php
@@ -23,11 +24,6 @@
             $currentStepIndex = 7; // Tahap aktif: 'Final Skripsi'
         @endphp
 
-        <!-- 
-            =======================================================
-            1. KONTEN DESKTOP (PROGRESS BAR + FORM)
-            =======================================================
-        -->
         <div id="desktop-content-container" class="hidden md:block">
             <div class="mb-8 sm:mb-10 overflow-x-auto">
                 <h3 class="font-medium text-gray-600 mb-4 text-sm sm:text-base">Your Progress</h3>
@@ -49,6 +45,7 @@
                                 <p class="mt-2 text-xs sm:text-sm font-medium text-gray-700 text-center">{{ $step }}</p>
 
                             @else
+                                {{-- Ini seharusnya tidak akan pernah tampil karena $currentStepIndex = 7 (terakhir) --}}
                                 <div class="w-7 h-7 bg-white border-2 border-gray-300 rounded-full z-10"></div>
                                 <p class="mt-2 text-xs sm:text-sm text-gray-500 text-center">{{ $step }}</p>
                             @endif
@@ -64,29 +61,23 @@
             </div>
 
             {{-- FORM SUBMIT SKRIPSI FINAL (DESKTOP) --}}
+            {{-- 2. Style Form Desktop disamakan --}}
             <hr class="border-gray-200 mt-8 mb-6">
             <h4 class="font-medium text-gray-600 mb-4 text-sm sm:text-base">Submission for {{ $steps[$currentStepIndex] }}</h4>
             <form action="action_url" method="POST" enctype="multipart/form-data">
                 @csrf
-                <div class="flex items-center space-x-4">
-                    <label for="file_input_desktop" class="w-32 text-sm font-medium text-gray-700">Submit Skripsi Final</label>
-                    <div class="flex-grow flex items-center space-x-3">
-                        <input
-                            class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 focus:outline-none file:mr-4 file:py-2 file:px-4 file:rounded-l-lg file:border-0 file:text-sm file:font-semibold file:bg-gray-200 file:text-gray-700 hover:file:bg-gray-300"
-                            id="file_input_desktop" name="proposal_file" type="file">
-                        <button type="submit"
-                            class="px-8 py-2 bg-gray-700 text-white font-medium rounded-lg hover:bg-gray-800 transition duration-200">Submit</button>
+                <div class="flex flex-col sm:flex-row items-start sm:items-center space-y-4 sm:space-y-0 sm:space-x-4">
+                    <label for="file_input_desktop" class="w-full sm:w-32 text-sm font-medium text-gray-700 flex-shrink-0">Submit Skripsi Final</label> {{-- Label diubah sedikit --}}
+                    <div class="flex-grow flex flex-col sm:flex-row items-stretch sm:items-center space-y-3 sm:space-y-0 sm:space-x-3 w-full sm:w-auto">
+                        <input class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 focus:outline-none file:mr-4 file:py-2 file:px-4 file:rounded-l-lg file:border-0 file:text-sm file:font-semibold file:bg-gray-200 file:text-gray-700 hover:file:bg-gray-300"
+                            id="file_input_desktop" name="skripsi_file" type="file"> {{-- name diubah --}}
+                        <button type="submit" class="px-8 py-2 w-full sm:w-auto bg-gray-700 text-white font-medium rounded-lg hover:bg-gray-800 transition duration-200 flex-shrink-0">Submit</button>
                     </div>
                 </div>
             </form>
         </div> {{-- End Desktop Container --}}
 
 
-        <!-- 
-            =======================================================
-            2. ACCORDION (TAMPIL DI MOBILE)
-            =======================================================
-        -->
         <div class="mb-8 sm:mb-10" 
              id="mobile-accordion-container" 
              style="display: none;">
@@ -111,37 +102,42 @@
                                         <div class="w-2 h-2 bg-black rounded-full"></div> 
                                     </div>
                                 @else
+                                    {{-- Seharusnya tidak tampil --}}
                                     <div class="w-4 h-4 mr-3 border-2 border-gray-300 rounded-full flex-shrink-0"></div>
                                 @endif
                                 <span>{{ $step }}</span>
                             </div>
 
-                            <svg class="w-4 h-4 transform transition-transform duration-300 **accordion-icon** {{ $index == $currentStepIndex ? 'rotate-180' : '' }}" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                            <svg class="w-4 h-4 transform transition-transform duration-300 accordion-icon {{ $index == $currentStepIndex ? 'rotate-180' : '' }}" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                         </button>
 
                         {{-- Body Accordion (Konten & Form Submit) --}}
-                        <div id="accordion-body-{{ $index }}" class="overflow-hidden transition-all duration-300 **accordion-content**" 
-                            style="{{ $index == $currentStepIndex ? 'max-height: 400px; padding: 10px;' : 'max-height: 0; padding: 0 10px;' }}">
+                        <div id="accordion-body-{{ $index }}" class="overflow-hidden transition-all duration-300 accordion-content" 
+                            style="{{ $index == $currentStepIndex ? 'max-height: 300px; padding: 10px;' : 'max-height: 0; padding: 0 10px;' }}"> {{-- max-height disesuaikan --}}
                             
-                            <div class="pb-3 pt-1 pl-12 text-gray-600 text-sm">
+                            {{-- Padding kiri dihapus agar center --}}
+                            <div class="pb-3 pt-1 text-gray-600 text-sm"> 
                                 
                                 @if($index == $currentStepIndex)
-                                    <p class="mt-2 mb-4 text-xs text-gray-500">Silakan upload dokumen yang diperlukan di bawah ini.</p>
-                                    
                                     {{-- FORM SUBMIT SKRIPSI FINAL (MOBILE) --}}
+                                    {{-- 3. Style Form Mobile disamakan --}}
+                                    <h5 class="font-medium text-gray-600 mb-4 text-sm">Submission for {{ $steps[$currentStepIndex] }}</h5>
                                     <form action="action_url" method="POST" enctype="multipart/form-data" class="mt-4">
                                         @csrf
-                                        <div class="flex flex-col space-y-3">
-                                            <label for="file_input_mobile_final" class="text-sm font-medium text-gray-700">Submit Skripsi Final</label>
-                                            <input class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 focus:outline-none file:mr-4 file:py-2 file:px-4 file:rounded-l-lg file:border-0 file:text-sm file:font-semibold file:bg-gray-200 file:text-gray-700 hover:file:bg-gray-300"
-                                                id="file_input_mobile_final" name="proposal_file" type="file">
-                                            <button type="submit" class="w-full px-8 py-2 bg-gray-700 text-white font-medium rounded-lg hover:bg-gray-800 transition duration-200">Submit</button>
+                                        <div class="flex flex-col xs:flex-row items-start xs:items-center space-y-3 xs:space-y-0 xs:space-x-4">
+                                            <label for="file_input_mobile_final" class="w-full xs:w-auto text-sm font-medium text-gray-700 flex-shrink-0">Submit Skripsi Final</label> {{-- Label diubah sedikit --}}
+                                            <div class="flex-grow flex flex-col xs:flex-row items-stretch xs:items-center space-y-3 xs:space-y-0 xs:space-x-3 w-full xs:w-auto">
+                                                <input class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 focus:outline-none file:mr-4 file:py-2 file:px-4 file:rounded-l-lg file:border-0 file:text-sm file:font-semibold file:bg-gray-200 file:text-gray-700 hover:file:bg-gray-300"
+                                                    id="file_input_mobile_final" name="skripsi_file" type="file"> {{-- name diubah --}}
+                                                <button type="submit" class="px-6 py-2 w-full xs:w-auto bg-gray-700 text-white font-medium rounded-lg text-sm hover:bg-gray-800 transition duration-200 flex-shrink-0">Submit</button>
+                                            </div>
                                         </div>
                                     </form>
 
                                 @elseif($index < $currentStepIndex)
                                     <p>Tahap **{{ $step }}** telah diselesaikan.</p>
                                 @else
+                                    {{-- Seharusnya tidak tampil --}}
                                     <p>Menunggu tahap **{{ $steps[$currentStepIndex] }}** selesai.</p>
                                 @endif
                                 
@@ -156,6 +152,7 @@
 @endsection
 
 @push('scripts')
+{{-- Script JavaScript tetap sama persis --}}
 <script>
     document.addEventListener('DOMContentLoaded', function () {
         const accordionContainer = document.getElementById('mobile-accordion-container');
@@ -201,7 +198,8 @@
                     content.style.maxHeight = '0';
                     content.style.padding = '0 10px';
                     document.querySelector(`[data-accordion-target="#${content.id}"]`).setAttribute('aria-expanded', 'false');
-                    document.querySelector(`[data-accordion-target="#${content.id}"] .accordion-icon`).classList.remove('rotate-180');
+                    const otherIcon = document.querySelector(`[data-accordion-target="#${content.id}"] .accordion-icon`); // Perbaiki selector icon lain
+                    if (otherIcon) otherIcon.classList.remove('rotate-180');
                 }
             });
 
@@ -209,13 +207,12 @@
                 targetElement.style.maxHeight = '0';
                 targetElement.style.padding = '0 10px';
                 button.setAttribute('aria-expanded', 'false');
-                icon.classList.remove('rotate-180');
+                if (icon) icon.classList.remove('rotate-180');
             } else {
-                // Nilai dikurangi karena kontennya sekarang pendek (hanya form submit)
-                targetElement.style.maxHeight = targetElement.scrollHeight + 150 + 'px'; 
+                targetElement.style.maxHeight = targetElement.scrollHeight + 150 + 'px'; // Cukup besar
                 targetElement.style.padding = '10px';
                 button.setAttribute('aria-expanded', 'true');
-                icon.classList.add('rotate-180');
+                if (icon) icon.classList.add('rotate-180');
             }
         }
     });

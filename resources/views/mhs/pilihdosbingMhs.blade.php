@@ -116,11 +116,10 @@
                         <div id="accordion-body-{{ $index }}" class="overflow-hidden transition-all duration-300 **accordion-content**" 
                             style="{{ $index == $currentStepIndex ? 'max-height: 400px; padding: 10px;' : 'max-height: 0; padding: 0 10px;' }}">
                             
-                            <div class="pb-3 pt-1 pl-12 text-gray-600 text-sm">
+                            <div class="pb-3 pt-1 text-gray-600 text-sm">
                                 
                                 @if($index == $currentStepIndex)
-                                    <p class="mt-2 mb-4 text-xs text-gray-500">Silakan ajukan dua nama dosen pembimbing yang Anda inginkan.</p>
-                                    
+                                    <h5 class="text-base font-semibold text-gray-700 mb-2">Pilih Dosen Pembimbing ({{ $steps[$currentStepIndex] }})</h5>
                                     {{-- FORM PILIH DOSBING (MOBILE) --}}
                                     <div class="space-y-4">
                                         <div class="flex flex-col space-y-2">

@@ -66,26 +66,26 @@
             <hr class="border-gray-200 mt-8 mb-6">
             
             {{-- Konten Utama Jadwal Sidang Skripsi (Desktop) --}}
+            {{-- DIUBAH: Dihapus wrapper bg-gray-100 --}}
             <div class="pt-4 md:pt-8 mb-16 md:mb-20">
-                <div class="bg-gray-100 p-6 md:p-10 rounded-lg">
-                    <div class="flex flex-col items-center justify-center p-0 md:p-4">
+                <div class="flex flex-col items-center justify-center p-0 md:p-4">
+    
+                    <h1 class="text-2xl md:text-4xl font-semibold text-gray-800 mb-8 md:mb-10 text-center">Jadwal Sidang Skripsi</h1>
+
+                    {{-- Card Jadwal (Desktop) - Style sama seperti Sidang Proposal --}}
+                    <div class="w-full max-w-sm sm:max-w-lg bg-gray-100 p-6 md:p-10 rounded-lg shadow-xl relative">
         
-                        <h1 class="text-2xl md:text-4xl font-semibold text-gray-800 mb-8 md:mb-10 text-center">Jadwal Sidang Skripsi</h1>
-
-                        <div class="w-full max-w-sm sm:max-w-lg p-6 md:p-10 rounded-lg shadow-xl relative">
-            
-                            <div class="text-center space-y-3 md:space-y-4">
-                                <p class="text-xl md:text-3xl font-semibold text-gray-800">{{ $tanggalSidang }}</p>
-                                <p class="text-2xl md:text-4xl font-bold text-gray-900">Pk: {{ $jamSidang }}</p>
-                            </div>
-            
-                            <div class="mt-6 md:mt-8 pt-3 md:pt-4 border-t border-gray-300 text-center"> 
-                                <span class="block w-full py-2 text-lg md:text-xl text-white font-medium rounded-lg shadow-lg bg-green-600">
-                                    {{ $statusSidang }}
-                                </span>
-                            </div>
-
+                        <div class="text-center space-y-3 md:space-y-4">
+                            <p class="text-xl md:text-3xl font-semibold text-gray-800">{{ $tanggalSidang }}</p>
+                            <p class="text-2xl md:text-4xl font-bold text-gray-900">Pk: {{ $jamSidang }}</p>
                         </div>
+        
+                        <div class="mt-6 md:mt-8 pt-3 md:pt-4 border-t border-gray-300 text-center"> 
+                            <span class="block w-full py-2 text-lg md:text-xl text-white font-medium rounded-lg shadow-lg bg-green-600">
+                                {{ $statusSidang }}
+                            </span>
+                        </div>
+
                     </div>
                 </div>
             </div>
@@ -122,29 +122,38 @@
                                 <span>{{ $step }}</span>
                             </div>
 
-                            <svg class="w-4 h-4 transform transition-transform duration-300 **accordion-icon** {{ $index == $currentStepIndex ? 'rotate-180' : '' }}" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                            <svg class="w-4 h-4 transform transition-transform duration-300 accordion-icon {{ $index == $currentStepIndex ? 'rotate-180' : '' }}" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                         </button>
 
                         {{-- Body Accordion (Konten) --}}
-                        <div id="accordion-body-{{ $index }}" class="overflow-hidden transition-all duration-300 **accordion-content**" 
-                            style="{{ $index == $currentStepIndex ? 'max-height: 400px; padding: 10px;' : 'max-height: 0; padding: 0 10px;' }}">
+                        <div id="accordion-body-{{ $index }}" class="overflow-hidden transition-all duration-300 accordion-content" 
+                            style="{{ $index == $currentStepIndex ? 'max-height: 500px; padding: 10px;' : 'max-height: 0; padding: 0 10px;' }}">
                             
-                            <div class="pb-3 pt-1 pl-12 text-gray-600 text-sm">
+                            {{-- DIUBAH: Dihapus pl-12 --}}
+                            <div class="pb-3 pt-1 text-gray-600 text-sm">
                                 
                                 @if($index == $currentStepIndex)
-                                    {{-- KONTEN UTAMA JADWAL SIDANG SKRIPSI DI SINI --}}
-                                    <p><strong>Status Saat Ini:</strong> Sidang Skripsi sudah terjadwal.</p>
-
-                                    <div class="mt-4 p-4 bg-white rounded-lg shadow">
-                                        <h4 class="text-lg font-semibold text-gray-700 text-center mb-3">Jadwal Anda</h4>
-                                        <div class="text-center space-y-2">
-                                            <p class="text-xl font-semibold text-gray-800">{{ $tanggalSidang }}</p>
-                                            <p class="text-2xl font-bold text-gray-900">Pk: {{ $jamSidang }}</p>
-                                        </div>
-                                        <div class="mt-4 pt-3 border-t border-gray-200 text-center"> 
-                                            <span class="block py-1 text-base text-white font-medium rounded-lg bg-green-600">
-                                                {{ $statusSidang }}
-                                            </span>
+                                    {{-- 
+                                    KONTEN UTAMA JADWAL SIDANG SKRIPSI DI SINI (MOBILE - SUDAH DISAMAKAN) 
+                                    --}}
+                                    <div class="my-4"> {{-- Margin atas bawah --}}
+                                        <h4 class="text-xl font-semibold text-gray-800 text-center mb-6">Jadwal Sidang Skripsi</h4>
+                                        
+                                        {{-- Card Jadwal (Mobile) - Style disamakan --}}
+                                        <div class="w-full bg-gray-100 p-6 rounded-lg shadow-xl relative">
+                    
+                                            <div class="text-center space-y-3">
+                                                <p class="text-xl font-semibold text-gray-800">{{ $tanggalSidang }}</p>
+                                                <p class="text-2xl font-bold text-gray-900">Pk: {{ $jamSidang }}</p>
+                                            </div>
+                    
+                                            <div class="mt-6 pt-3 border-t border-gray-300 text-center">
+                                                <span
+                                                    class="block w-full py-2 text-lg text-white font-medium rounded-lg shadow-lg bg-green-600">
+                                                    {{ $statusSidang }}
+                                                </span>
+                                            </div>
+                    
                                         </div>
                                     </div>
                                     
@@ -165,6 +174,7 @@
 @endsection
 
 @push('scripts')
+{{-- Script JavaScript tetap sama persis --}}
 <script>
     document.addEventListener('DOMContentLoaded', function () {
         const accordionContainer = document.getElementById('mobile-accordion-container');
@@ -210,7 +220,8 @@
                     content.style.maxHeight = '0';
                     content.style.padding = '0 10px';
                     document.querySelector(`[data-accordion-target="#${content.id}"]`).setAttribute('aria-expanded', 'false');
-                    document.querySelector(`[data-accordion-target="#${content.id}"] .accordion-icon`).classList.remove('rotate-180');
+                    const otherIcon = document.querySelector(`[data-accordion-target="#${content.id}"] .accordion-icon`); // Perbaiki selector icon lain
+                    if (otherIcon) otherIcon.classList.remove('rotate-180');
                 }
             });
 
@@ -218,13 +229,12 @@
                 targetElement.style.maxHeight = '0';
                 targetElement.style.padding = '0 10px';
                 button.setAttribute('aria-expanded', 'false');
-                icon.classList.remove('rotate-180');
+                if (icon) icon.classList.remove('rotate-180');
             } else {
-                // Nilai disesuaikan untuk menampung konten Jadwal Sidang
-                targetElement.style.maxHeight = targetElement.scrollHeight + 150 + 'px'; 
+                targetElement.style.maxHeight = '800px'; 
                 targetElement.style.padding = '10px';
                 button.setAttribute('aria-expanded', 'true');
-                icon.classList.add('rotate-180');
+                if (icon) icon.classList.add('rotate-180');
             }
         }
     });

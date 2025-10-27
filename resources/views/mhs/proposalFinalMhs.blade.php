@@ -105,17 +105,18 @@
                         <div id="accordion-body-{{ $index }}" class="overflow-hidden transition-all duration-300 **accordion-content**" 
                             style="{{ $index == $currentStepIndex ? 'max-height: 200px; padding: 10px;' : 'max-height: 0; padding: 0 10px;' }}">
                             
-                            <div class="pb-3 pt-1 pl-12 text-gray-600 text-sm">
+                            <div class="pb-3 pt-1 text-gray-600 text-sm">
                                 
                                 @if($index == $currentStepIndex)
-                                    <p class="mt-2 mb-4 text-xs text-gray-500">Silakan submit file yang diperlukan di bawah ini.</p>
-                                    
+                                    <h5 class="font-medium text-gray-600 mb-4 text-sm sm:text-base">Submission for {{ $steps[$currentStepIndex] }}</h5>
                                     <form action="action_url" method="POST" enctype="multipart/form-data" class="mt-4">
                                         @csrf
-                                        <div class="flex flex-col items-stretch space-y-3">
-                                            <input class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 focus:outline-none file:mr-4 file:py-2 file:px-4 file:rounded-l-lg file:border-0 file:text-sm file:font-semibold file:bg-gray-200 file:text-gray-700 hover:file:bg-gray-300"
-                                                id="file_input_mobile" name="proposal_file" type="file">
-                                            <button type="submit" class="px-8 py-2 bg-gray-700 text-white font-medium rounded-lg hover:bg-gray-800 transition duration-200">Submit File</button>
+                                        <div class="flex flex-col space-y-2">
+                                                <label for="file_input_mobile" class="text-sm font-medium text-gray-700">Submit Proposal</label>
+                                                <input class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 focus:outline-none file:mr-4 file:py-2 file:px-4 file:rounded-l-lg file:border-0 file:text-sm file:font-semibold file:bg-gray-200 file:text-gray-700 hover:file:bg-gray-300"
+                                                    id="file_input_mobile" name="proposal_file" type="file">
+                                                <button type="submit" class="w-full px-8 py-2 bg-gray-700 text-white font-medium rounded-lg hover:bg-gray-800 transition duration-200">Submit</button>
+                                            </div>
                                         </div>
                                     </form>
 
