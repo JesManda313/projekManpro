@@ -3,12 +3,10 @@
         id="sidebar" 
         class="fixed inset-y-0 left-0 w-64 bg-gray-800 bg-opacity-80 text-white flex flex-col transform -translate-x-full lg:translate-x-0 transition-transform duration-300 z-50"
     >
-        <div class="p-6 text-2xl font-semibold border-b border-gray-700">PETRA</div>
+        <div class="px-4 py-4.5 text-2xl font-semibold border-b border-gray-700">PETRA</div>
         <nav class="flex-1 px-4 py-6 space-y-2">
             <a href="/" class="flex items-center px-4 py-2.5 hover:bg-gray-700 rounded-lg font-medium">Dashboard</a>
             <a href="/" class="flex items-center px-4 py-2.5 hover:bg-gray-700 rounded-lg">Topik Dosen</a>
-            <a href="/" class="flex items-center px-4 py-2.5 hover:bg-gray-700 rounded-lg">Sidang Proposal</a>
-            <a href="/" class="flex items-center px-4 py-2.5 hover:bg-gray-700 rounded-lg">Sidang Skripsi</a>
         </nav>
         <div class="px-4 py-6 border-t border-gray-700">
             <a href="/logout" class="flex items-center px-4 py-2.5 text-gray-300 hover:bg-gray-700 rounded-lg">Log out</a>
