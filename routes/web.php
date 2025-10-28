@@ -35,7 +35,6 @@ Route::post('/superadmin/storePermission', function (Request $request) {
 })->name('superadmin.storePermission');
 
 Route::post('/superadmin/assignPermissions', function (Request $request) {
-
     return redirect()->back()->with('success', 'Permissions saved for role!');
 })->name('superadmin.assignPermissions');
 
@@ -64,7 +63,7 @@ Route::get('/mhs/pendaftaran-skripsi', function () { return view('mhs/pendaftara
 Route::get('/mhs/jadwal-sidang-skripsi', function () { return view('mhs/jadwalSidangSkripsiMhs');});
 Route::get('/mhs/submit-skripsi-final', function () { return view('mhs/submitSkripsiMhs');});
 // Route::get('/profile', function () { return view('mhs/profileMhs');});
-Route::get('/profile', function () { return view('mhs/profileMhs');});
+// Route::get('/profile', function () { return view('mhs/profileMhs');});
 // Route::get('/settings', function () { return view('mhs/settingsMhs');});
 // Route::get('/help', function () { return view('mhs/helpMhs');});
 // Route::get('/logout', function () { return view('mhs/logoutMhs');});
