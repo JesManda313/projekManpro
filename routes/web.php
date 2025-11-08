@@ -6,6 +6,10 @@ use Illuminate\Http\Request;
 Route::get('/', function () {
     return view('login');
 });
+Route::get('/resetpassword', function () {
+    return view('resetpassword');
+});
+
 
 // superadmin
 Route::get('/superadmin/rolesPermission', function () { 

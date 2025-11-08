@@ -5,9 +5,7 @@
         class="fixed inset-y-0 left-0 w-64 bg-gray-800 bg-opacity-80 text-white flex flex-col transform -translate-x-full lg:translate-x-0 transition-transform duration-300 z-50"
     >
         <!-- Header Sidebar -->
-        <div class="px-4 py-4.5 text-2xl font-semibold border-b border-gray-700">
-            PETRA
-        </div>
+        <div class="px-4 py-2 text-2xl font-semibold border-b border-gray-700"><img src="{{ asset('../assets/logopcuputih.png') }}" alt="logopcuputih"></div>
 
         <!-- NAVIGATION MENU -->
         <nav class="flex-1 px-4 py-6 space-y-2">

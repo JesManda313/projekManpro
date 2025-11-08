@@ -24,47 +24,34 @@
         {{-- 1. Kontainer Login (Form) --}}
         {{-- Penambahan ID untuk target CSS murni di mobile --}}
         <div id="login-container-mobile" 
-             class="w-full lg:w-1/3 bg-white flex items-center justify-center p-8 lg:p-12">
+             class="w-full lg:w-1/3 bg-white flex items-center justify-center p-8 lg:p-5">
             <div class="w-full max-w-sm">
                 <img class="pb-6" src="{{ asset('../assets/logopcubiru.png') }}" alt="logopcubiru">
-                <h2 class="text-xl font-medium text-gray-700 mb-8">Pendaftaran & Penjadwalan Proposal Skripsi</h2>
-
+                <h2 class=" text-xl text-gray-500 mb-2">Pendaftaran & Penjadwalan Proposal Skripsi</h2>
+                <h3 class="text-2xl font-semibold text-gray-900 mb-3">Reset Password</h3>
                 <form action="#" method="POST">
-                    
-                    {{-- Input Email --}}
+                    {{-- old pass--}}
                     <div class="mb-4">
-                        <input type="email" placeholder="user@gmail.com"
+                        <input type="password" placeholder="Old password"
                             class="w-full px-4 py-3 bg-gray-100 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-700">
                     </div>
                     
-                    {{-- Dropdown Domain (@john.petra.ac.id) --}}
-                    <div class="mb-4 flex">
-                        <span class="inline-flex items-center px-3 text-sm text-gray-900 bg-gray-100 border border-r-0 border-gray-200 rounded-l-lg">@</span>
-                        <select class="w-full px-4 py-3 bg-gray-100 border border-gray-200 rounded-r-lg focus:outline-none focus:ring-2 focus:ring-gray-700">
-                            <option>john.petra.ac.id</option>
-                            <option>peter.petra.ac.id</option>
-                        </select>
-                    </div>
-                    
-                    {{-- Input Password --}}
-                    <div class="mb-6">
-                        <input type="password" id="password" name="password" 
+                    {{-- new pass --}}
+                    <div class="mb-4">
+                        <input type="password" placeholder="New password"
                             class="w-full px-4 py-3 bg-gray-100 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-700">
                     </div>
                     
-                    {{-- Keterangan --}}
-                    <div>
-                        <p class="text-xs sm:text-sm mb-5 text-gray-600">
-                            Keterangan pengisian username: <br>
-                            - Mahasiswa : sesuai dengan email di **john.petra.ac.id** <br>
-                            - Dosen : sesuai dengan email di **peter.petra.ac.id**
-                        </p>
+                    {{-- Confirm Password --}}
+                    <div class="mb-4">
+                        <input type="password" placeholder="Confirm password"
+                            class="w-full px-4 py-3 bg-gray-100 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-700">
                     </div>
                     
-                    {{-- Tombol Login --}}
+                    {{-- Tombol reset --}}
                     <div>
                         <button type="submit" class="w-full bg-gray-700 text-white font-medium py-3 px-4 rounded-lg hover:bg-gray-800 transition-colors duration-300">
-                            LOG IN
+                            RESET
                         </button>
                     </div>
                 </form>
